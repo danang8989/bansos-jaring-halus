@@ -11,4 +11,16 @@ class Penduduk extends Model
     public function dusun(){
         return $this->belongsto(Dusun::class);
     }
+
+    public function konsumsi(){
+        return $this->hasMany(Konsumsi::class);
+    }
+
+    public function pekerjaan(){
+        return $this->hasMany(Pekerjaan::class);
+    }
+
+    public function bantuan(){
+        return $this->hasMany(Bantuan::class);
+    }
 }

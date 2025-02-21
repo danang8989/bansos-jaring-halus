@@ -1,7 +1,20 @@
 (function($) {
   'use strict';
-  $(function() {
+  $(async function() {
     if ($("#performanceLine").length) { 
+      const data = await fetch(`http://localhost:8000/api/grafik_bantuan_sosial`).then(response => response.json());
+
+      const labels = [];
+      const values = [];
+
+      data.date_labels.forEach(element => {
+        labels.push(element.tanggal_penyaluran)
+      });
+
+      data.penduduk_by_date_data.forEach(element => {
+        values.push(Number(element.jumlah_penduduk))
+      });
+
       const ctx = document.getElementById('performanceLine');
       var graphGradient = document.getElementById("performanceLine").getContext('2d');
       var graphGradient2 = document.getElementById("performanceLine").getContext('2d');
@@ -15,10 +28,10 @@
       new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["SUN","sun", "MON", "mon", "TUE","tue", "WED", "wed", "THU", "thu", "FRI", "fri", "SAT"],
+          labels: labels,
           datasets: [{
             label: 'This week',
-            data: [50, 110, 60, 290, 200, 115, 130, 170, 90, 210, 240, 280, 200],
+            data: values,
             backgroundColor: saleGradientBg,
             borderColor: [
                 '#1F3BB3',
@@ -30,21 +43,7 @@
             pointHoverRadius: [2, 2, 2, 2, 2,2, 2, 2, 2, 2,2, 2, 2],
             pointBackgroundColor: ['#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)', '#1F3BB3', '#1F3BB3', '#1F3BB3','#1F3BB3)'],
             pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
-        },{
-          label: 'Last week',
-          data: [30, 150, 190, 250, 120, 150, 130, 20, 30, 15, 40, 95, 180],
-          backgroundColor: saleGradientBg2,
-          borderColor: [
-              '#52CDFF',
-          ],
-          borderWidth: 1.5,
-          fill: true, // 3: no fill
-          pointBorderWidth: 1,
-          pointRadius: [0, 0, 0, 4, 0],
-          pointHoverRadius: [0, 0, 0, 2, 0],
-          pointBackgroundColor: ['#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)', '#52CDFF', '#52CDFF', '#52CDFF','#52CDFF)'],
-            pointBorderColor: ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff',],
-      }]
+        }]
         },
         options: {
           responsive: true,
@@ -66,9 +65,12 @@
                 drawBorder: false,
               },
               ticks: {
-                beginAtZero: false,
+                callback: function(value) {
+                  return Math.round(value); // Membulatkan nilai
+                },
+                beginAtZero: true,
                 autoSkip: true,
-                maxTicksLimit: 4,
+                maxTicksLimit: values.length,
                 color:"#6B778C",
                 font: {
                   size: 10,

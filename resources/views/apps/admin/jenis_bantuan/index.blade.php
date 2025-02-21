@@ -20,8 +20,8 @@
                   </form>
                 </div>
                 
-                <div class="table-responsive  mt-1">
-                  <table class="table select-table">
+                <div class="table-responsive mt-1">
+                  <table class="table">
                     <thead>
                       <tr>
                         <th>ID</th>

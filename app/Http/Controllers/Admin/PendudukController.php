@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Penduduk;
+use App\Models\{Dusun, Penduduk};
 use Session;
 
 class PendudukController extends Controller
@@ -16,17 +16,29 @@ class PendudukController extends Controller
      */
     public function index(Request $request)
     {
-        $q_title = $request->q_title;
-        $book = Book::orderBy('id', 'asc');
+        $q_nama = $request->q_nama;
+        $q_kk = $request->q_kk;
+        $q_nik = $request->q_nik;
+        $penduduk = Penduduk::orderBy('id', 'asc');
         
-        if (!empty($q_title)) {
-            $book->where('title', 'like', '%'.$q_title.'%');
+        if (!empty($q_nama)) {
+            $penduduk->where('nama', 'like', '%'.$q_nama.'%');
         }
 
-        $book = $book->simplePaginate(15);
+        if (!empty($q_kk)) {
+            $penduduk->where('no_kk', 'like', '%'.$q_kk.'%');
+        }
 
-        return view('apps.admin.book.index')->with('book', $book)
-                                                    ->with('q_title', $q_title);
+        if (!empty($q_nik)) {
+            $penduduk->where('nik', 'like', '%'.$q_nik.'%');
+        }
+
+        $penduduk = $penduduk->simplePaginate(15);
+
+        return view('apps.admin.penduduk.index')->with('penduduk', $penduduk)
+                                                ->with('q_nama', $q_nama)
+                                                ->with('q_kk', $q_kk)
+                                                ->with('q_nik', $q_nik);
     }
 
     /**
@@ -36,10 +48,8 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        $shelf = Shelf::orderBy('id', 'desc')->get();
-        $category_book = CategoryBook::orderBy('name', 'asc')->get();
-
-        return view('apps.admin.book.create')->with('shelf', $shelf)->with('category_book', $category_book);
+        $dusun = Dusun::orderBy('nama', 'asc')->get();
+        return view('apps.admin.penduduk.create')->with('dusun', $dusun);
     }
 
     /**
@@ -51,10 +61,10 @@ class PendudukController extends Controller
     public function insert(Request $request)
     {
         $data = $request->all();
-        $book = Book::create($data);
+        $penduduk = Penduduk::create($data);
 
         Session::flash('flash_message', 'Data telah ditambah');
-        return redirect()->route('admin.book');
+        return redirect()->route('admin.penduduk');
     }
 
     /**
@@ -63,13 +73,10 @@ class PendudukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
-    {
-        $book = Book::findOrFail($book->id);
-        $shelf = Shelf::orderBy('id', 'desc')->get();
-        $category_book = CategoryBook::orderBy('name', 'asc')->get();
-        
-        return view('apps.admin.book.edit')->with('book', $book)->with('shelf', $shelf)->with('category_book', $category_book);
+    public function edit(penduduk $penduduk)
+    {   
+        $dusun = Dusun::orderBy('nama', 'asc')->get();
+        return view('apps.admin.penduduk.edit')->with('penduduk', $penduduk)->with('dusun', $dusun);
     }
 
     /**
@@ -81,13 +88,13 @@ class PendudukController extends Controller
      */
     public function update(Request $request)
     {
-        $book = Book::findOrFail($request->id); 
+        $penduduk = Penduduk::findOrFail($request->id); 
         $data = $request->all();
 
-        $book->update($data);
+        $penduduk->update($data);
 
         Session::flash('flash_message', 'Data telah diubah');
-        return redirect()->route('admin.book');
+        return redirect()->route('admin.penduduk');
     }
 
     /**
@@ -98,8 +105,8 @@ class PendudukController extends Controller
      */
     public function delete(Request $request)
     {
-        $book = Book::findOrFail($request->id);
-        $book->delete();
+        $penduduk = Penduduk::findOrFail($request->id);
+        $penduduk->delete();
         
         return redirect()->back();
     }

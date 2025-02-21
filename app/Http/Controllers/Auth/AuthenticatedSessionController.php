@@ -32,8 +32,8 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('admin.dashboard', absolute: false));
         }
 
-        if (auth()->user()->user_level == 'master') {
-            return redirect()->intended(route('master.dashboard', absolute: false));
+        if (auth()->user()->user_level == 'kepdes') {
+            return redirect()->intended(route('kepdes.dashboard', absolute: false));
         }
 
         // return redirect()->intended(route('login', absolute: false));
@@ -50,6 +50,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('login');
     }
 }

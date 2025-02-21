@@ -43,7 +43,11 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        @include('components.sidebar_admin')
+        @if (auth()->user()->user_level == "admin")
+          @include('components.sidebar_admin')
+        @else
+          @include('components.sidebar_master')
+        @endif
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">

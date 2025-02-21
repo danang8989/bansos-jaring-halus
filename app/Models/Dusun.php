@@ -11,4 +11,10 @@ class Dusun extends Model
     public function penduduk(){
         return $this->hasMany(Penduduk::class);
     }
+
+    public function getJumlahPenduduk($id){
+        $penduduk = Penduduk::where('dusun_id', $id)->count();
+
+        return $penduduk;
+    }
 }

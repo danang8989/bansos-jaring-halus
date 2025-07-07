@@ -33,7 +33,9 @@
                             <option value="Pegawai Swasta">Pegawai Swasta</option>
                             <option value="Pengacara">Pengacara</option>
                             <option value="Akuntan">Akuntan</option>
+                            <option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
                             <option value="Mahasiswa">Mahasiswa</option>
+                            <option value="Nelayan">Nelayan</option>
                             <option value="lainnya">Lainnya</option>
                           </select>
                         </div>

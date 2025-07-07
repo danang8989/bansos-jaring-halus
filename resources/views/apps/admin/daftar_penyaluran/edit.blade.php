@@ -32,7 +32,12 @@
                           </select>
                         </div>
                      
-                        <button type="submit" class="btn btn-primary me-2">Simpan jika dana sudah disalurkan</button>
+                        @if (!$bantuan->status)
+                          <button type="submit" class="btn btn-primary me-2">Simpan jika dana sudah disalurkan</button>
+                        @else
+                          <button type="submit" class="btn btn-warning me-2">Simpan jika ingin merubah status</button>
+                        @endif
+
                         <a href="{{ URL::previous() }}">
                             <button type="button" class="btn btn-light">Batal</button>
                         </a>

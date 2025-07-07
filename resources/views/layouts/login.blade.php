@@ -25,37 +25,7 @@
     <link rel="shortcut icon" href="{{ asset('images/') }}favicon.png" />
   </head>
   <body class="with-welcome-text">
-    <div class="container-scroller">
-    
-      <!-- partial:partials/_navbar.html -->
-      @include('components.navbar')
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        @if (auth()->user()->user_level == "admin")
-          @include('components.sidebar_admin')
-        @else
-          @include('components.sidebar_master')
-        @endif
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            @yield('content')
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"><a href="#" target="_blank">Desa Jaring Halus</a></span>
-              <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2025. All rights reserved.</span>
-            </div>
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
+    @yield('content')
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="{{ asset('plugins/js/vendor.bundle.base.js') }}"></script>

@@ -73,7 +73,13 @@ class DaftarPenyaluranController extends Controller
     public function update(Request $request)
     {
         $bantuan = Bantuan::findOrFail($request->id); 
+
         $data['status'] = 1;
+
+        if ($bantuan->status) {
+            $data['status'] = 0;
+        }
+
         $data['tanggal_penyaluran'] = date('Y-m-d');
 
         $bantuan->update($data);

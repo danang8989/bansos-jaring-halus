@@ -28,8 +28,9 @@ class BantuanExport implements FromCollection, WithHeadings, WithMapping, withSt
     */
     public function collection()
     { 
-        // 01 - 02 - 2025 < 03 - 02 - 2025
-        return Bantuan::get();
+        return Bantuan::whereIn('penduduk_id', function($query){
+            $query->select('penduduk_id')->from('pekerjaans');
+        })->get();
     }
 
     public function styles(Worksheet $sheet)

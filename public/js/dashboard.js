@@ -30,7 +30,7 @@
         data: {
           labels: labels,
           datasets: [{
-            label: 'This week',
+            label: 'Penduduk',
             data: values,
             backgroundColor: saleGradientBg,
             borderColor: [
@@ -197,7 +197,7 @@
               fill: true, // 3: no fill
               
           },{
-            label: 'This week',
+            label: 'Penduduk',
             data: [215, 290, 210, 250, 290, 230, 290, 210, 280, 220, 190, 300],
             backgroundColor: "#1F3BB3",
             borderColor: [

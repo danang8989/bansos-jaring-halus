@@ -85,6 +85,7 @@
                             <option value="sarjana">Sarjana (S1)</option>
                             <option value="magister">Magister (S2)</option>
                             <option value="doktor">Doktor (S3)</option>
+                            <option value="doktor">Tidak Bersekolah</option>
                           </select>
                         </div>
                         <div class="form-group form-group-sm">

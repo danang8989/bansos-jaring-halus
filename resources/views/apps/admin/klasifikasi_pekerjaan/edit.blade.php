@@ -38,6 +38,9 @@
                             <option value="Pedagang Kaki Lima" @if ($pekerjaan->name == "Pedagang Kaki Lima")
                                 selected
                             @endif>Pedagang Kaki Lima</option>
+                            <option value="Ibu Rumah Tangga" @if ($pekerjaan->name == "Ibu Rumah Tangga")
+                              selected
+                          @endif>Ibu Rumah Tangga</option>
                             <option value="Guru" @if ($pekerjaan->name == "guru")
                                 
                             @endif>Guru</option>
@@ -53,6 +56,9 @@
                             <option value="Mahasiswa" @if ($pekerjaan->name == "Mahasiswa")
                               selected
                             @endif>Mahasiswa</option>
+                             <option value="Nelayan" @if ($pekerjaan->name == "Nelayan")
+                                selected
+                            @endif>Lainnya</option>
                             <option value="lainnya" @if ($pekerjaan->name == "Lainnya")
                                 selected
                             @endif>Lainnya</option>

@@ -47,6 +47,7 @@
                         <th>No. KK</th>
                         <th>Jenis Bantuan</th>
                         <th>Tanggal Diterima</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
@@ -77,15 +78,17 @@
                                   -
                                 @endif
                               </td>
+                              <td>
+                                @if ($item->status)
+                                  <div class="badge badge-opacity-success">Dana Bantuan Sudah Diterima</div>
+                                @else
+                                  <div class="badge badge-opacity-danger">Dana Belum Disalurkan</div>
+                                @endif
+                              </td>
                                 <td width="30%">
-                                    @if ($item->status)
-                                      <div class="badge badge-opacity-success">Dana Bantuan Sudah Diterima</div>
-                                 
-                                    @else
-                                      <a href="{{ route('admin.daftar_penyaluran.edit', $item->id) }}" style="text-decoration: none"> 
-                                          <button class="btn btn-warning btn-sm text-white mb-0 me-0" type="button"><i class="mdi mdi-pencil"></i>Proses Status</button>
-                                      </a>
-                                    @endif
+                                    <a href="{{ route('admin.daftar_penyaluran.edit', $item->id) }}" style="text-decoration: none"> 
+                                        <button class="btn btn-warning btn-sm text-white mb-0 me-0" type="button"><i class="mdi mdi-pencil"></i>Proses Status</button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

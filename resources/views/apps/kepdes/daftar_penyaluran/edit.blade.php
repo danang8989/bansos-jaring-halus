@@ -31,8 +31,13 @@
                             @endforeach
                           </select>
                         </div>
-                     
-                        <button type="submit" class="btn btn-primary me-2">Simpan jika dana sudah disalurkan</button>
+                        
+                        @if ($bantun->status == "1")
+                          <button type="submit" class="btn btn-primary me-2">Simpan jika dana sudah disalurkan</button>
+                        @else
+                          <button type="submit" class="btn btn-primary me-2">Simpan jika ingin merubah status</button>
+                        @endif
+                        
                         <a href="{{ URL::previous() }}">
                             <button type="button" class="btn btn-light">Batal</button>
                         </a>

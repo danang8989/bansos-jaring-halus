@@ -46,7 +46,8 @@
                             <option value="< Rp. 500.000"> Kurang dari Rp. 500.000 </option>
                             <option value="< Rp. 1.000.000"> Kurang dari Rp. 1.000.000 </option>
                             <option value="< Rp. 2.000.000"> Kurang dari Rp. 2.000.000 </option>
-                            <option value="< Rp. 500.000"> Lebih dari Rp. 3.000.000 </option>
+                            <option value="< Rp. 3.000.000"> Kurang dari Rp. 3.000.000 </option>
+                            <option value="> Rp. 3.000.000"> Lebih dari Rp. 3.000.000 </option>
                             <option value="Tidak Berpenghasilan"> Tidak Berpenghasilan </option>
                           </select>
                         </div>

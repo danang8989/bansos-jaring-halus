@@ -78,7 +78,10 @@
                             <option value="< Rp. 2.000.000" @if ($pekerjaan->penghasilan_perbulan == '< Rp. 2.000.000')
                               selected
                             @endif> Kurang dari Rp. 2.000.000 </option>
-                            <option value="< Rp. 500.000" @if ($pekerjaan->penghasilan_perbulan == '< Rp. 500.000')
+                            <option value="< Rp. 3.000.000" @if ($pekerjaan->penghasilan_perbulan == '< Rp. 3.000.000')
+                              selected
+                            @endif> Kurang dari Rp. 3.000.000 </option>
+                            <option value="> Rp. 3.000.000" @if ($pekerjaan->penghasilan_perbulan == '> Rp. 3.000.000')
                               selected
                             @endif> Lebih dari Rp. 3.000.000 </option>
                             <option value="Tidak Berpenghasilan" @if ($pekerjaan->penghasilan_perbulan == 'Tidak Berpenghasilan')

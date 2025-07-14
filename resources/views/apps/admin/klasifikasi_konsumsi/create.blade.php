@@ -25,6 +25,7 @@
                           <select type="text" class="form-control form-control-sm" id="bahan_makanan" name="bahan_makanan" placeholder="Bahan Makanan">
                             <option value="">-Silahkan Pilih-</option>
                             <option value="Daging">Daging</option>
+                            <option value="Ikan">Ikan</option>
                             <option value="Susu">Susu</option>
                             <option value="Ayam">Ayam</option>
                           </select>

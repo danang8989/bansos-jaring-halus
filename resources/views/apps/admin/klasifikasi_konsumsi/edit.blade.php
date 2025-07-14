@@ -26,6 +26,7 @@
                         <select type="text" class="form-control form-control-sm" id="bahan_makanan" name="bahan_makanan" placeholder="Bahan Makanan">
                           <option value="">-Silahkan Pilih-</option>
                           <option value="Daging" @if ($konsumsi->bahan_makanan == "Daging") selected @endif>Daging</option>
+                          <option value="Ikan" @if ($konsumsi->bahan_makanan == "Ikan") selected @endif>Ikan</option>
                           <option value="Susu" @if ($konsumsi->bahan_makanan == "Susu") selected @endif>Susu</option>
                           <option value="Ayam" @if ($konsumsi->bahan_makanan == "Ayam") selected @endif>Ayam</option>
                         </select>

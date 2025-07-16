@@ -7,11 +7,11 @@
         <div class="row w-100 mx-0">
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-              <div class="brand-logo">
+              <div class="brand-logo text-center">
                 <img src="{{ asset('images/logo.png') }}" alt="logo">
               </div>
-              <h4>Desa Jaring Halus</h4>
-              <h6 class="fw-light">Masuk.</h6>
+              <h4 class="text-center">Desa Jaring Halus</h4>
+              <h6 class="text-center fw-light">Masuk.</h6>
               <form class="pt-3" method="POST" action="{{ route('login') }}">
                 @csrf @method('POST')
                 <div class="form-group">

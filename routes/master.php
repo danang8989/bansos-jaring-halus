@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Kepdes\DashboardController;
+use App\Http\Controllers\Kepdes\JenisBantuanController;
 use App\Http\Controllers\Kepdes\PendudukController;
 use App\Http\Controllers\Kepdes\BantuanController;
 use App\Http\Controllers\Kepdes\DaftarPenyaluranController;
@@ -13,11 +14,7 @@ Route::middleware('auth')->namespace('Kepdes')->name('kepdes.')->prefix('/kepdes
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('penduduk', [PendudukController::class, 'index'])->name('penduduk');
-    Route::get('penduduk/create', [PendudukController::class, 'create'])->name('penduduk.create');
-    Route::post('penduduk', [PendudukController::class, 'insert'])->name('penduduk.insert');
-    Route::get('penduduk/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit');
-    Route::put('penduduk', [PendudukController::class, 'update'])->name('penduduk.update');
-    Route::delete('penduduk', [PendudukController::class, 'delete'])->name('penduduk.delete');
+    Route::get('jenis_bantuan', [JenisBantuanController::class, 'index'])->name('jenis_bantuan');
 
     Route::get('bantuan', [BantuanController::class, 'index'])->name('bantuan');
     Route::get('bantuan/create', [BantuanController::class, 'create'])->name('bantuan.create');

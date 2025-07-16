@@ -7,6 +7,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('kepdes.jenis_bantuan') }}">
+          <i class="menu-icon mdi mdi-handshake"></i>
+          <span class="menu-title">Jenis Bantuan</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{ route('kepdes.penduduk') }}">
           <i class="menu-icon mdi mdi-account-group"></i>
           <span class="menu-title">Penduduk</span>

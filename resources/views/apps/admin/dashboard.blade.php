@@ -75,10 +75,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 d-flex flex-column">
+            <div class="col-lg-4">
               <div class="row flex-grow">
-                <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                  <div class="card bg-primary card-rounded">
+                <div class="col-md-6 col-lg-12 grid-margin">
+                  <div class="card bg-primary card-rounded" style="padding-bottom: 20px">
                     <div class="card-body pb-0">
                       <h4 class="card-title card-title-dash text-white mb-4">Desa Jaring Halus</h4>
                       <div class="row">
@@ -104,30 +104,29 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6 col-lg-12 grid-margin stretch-card">
+              </div>
+              <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
                   <div class="card card-rounded">
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-lg-6">
-                          <div class="d-flex justify-content-between align-items-center mb-2 mb-sm-0">
-                            <div class="circle-progress-width">
-                              <div id="totalVisitors" class="progressbar-js-circle pr-2"></div>
-                            </div>
+                        <div class="col-lg-12">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>
-                              <p class="text-small mb-2">Total Visitors</p>
-                              <h4 class="mb-0 fw-bold">26.80%</h4>
+                              <h4 class="card-title card-title-dash">Daftar Dusun</h4>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="circle-progress-width">
-                              <div id="visitperday" class="progressbar-js-circle pr-2"></div>
+                          <div class="mt-3">
+                            @foreach ($daftar_dusun as $item)
+                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
+                              <div class="d-flex">
+                                <div class="wrapper ms-3">
+                                  <p class="mb-1 fw-bold">{{ $item->nama }}</p>
+                                  <small class="text-muted mb-0">{{ $item->getJumlahPenduduk($item->id) }} Penduduk</small>
+                                </div>
+                              </div>
                             </div>
-                            <div>
-                              <p class="text-small mb-2">Visits per day</p>
-                              <h4 class="mb-0 fw-bold">9065</h4>
-                            </div>
+                            @endforeach
                           </div>
                         </div>
                       </div>
@@ -141,7 +140,7 @@
             <div class="col-lg-8 d-flex flex-column">
            
               <div class="row flex-grow">
-                <div class="col-12 grid-margin stretch-card">
+                <div class="col-12 grid-margin">
                   <div class="card card-rounded">
                     <div class="card-body">
                       <div class="d-sm-flex justify-content-between align-items-start">
@@ -190,35 +189,7 @@
             </div>
             <div class="col-lg-4 d-flex flex-column">
     
-              <div class="row flex-grow">
-                <div class="col-12 grid-margin stretch-card">
-                  <div class="card card-rounded">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div>
-                              <h4 class="card-title card-title-dash">Daftar Dusun</h4>
-                            </div>
-                          </div>
-                          <div class="mt-3">
-                            @foreach ($daftar_dusun as $item)
-                            <div class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                              <div class="d-flex">
-                                <div class="wrapper ms-3">
-                                  <p class="mb-1 fw-bold">{{ $item->nama }}</p>
-                                  <small class="text-muted mb-0">{{ $item->getJumlahPenduduk($item->id) }} Penduduk</small>
-                                </div>
-                              </div>
-                            </div>
-                            @endforeach
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
